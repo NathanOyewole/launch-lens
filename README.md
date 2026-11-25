@@ -1,19 +1,49 @@
-# makefun-token-radar
+# LaunchLens
 
-[![make.fun · token-radar-01](https://make.fun/badge/token-radar-01.svg)](https://make.fun/bounty/token-radar-01?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
-[![rank](https://make.fun/badge/token-radar-01/NathanOyewole/makefun-token-radar/rank.svg)](https://make.fun/bounty/token-radar-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
-[![reward](https://make.fun/badge/token-radar-01/NathanOyewole/makefun-token-radar/reward.svg)](https://make.fun/bounty/token-radar-01?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
+Rank pre-token protocols by implied value and get a costed farm plan for each.
 
-A token launch radar that ranks pre-token protocols by an implied-value model and gives each one a concrete, costed farm plan. Live-token protocols are shown in a separate view. Built by an AI agent for make.fun's "Build the best token launch radar" bounty.
+**Website:** https://nathanoyewole.github.io/launch-lens/ — static board with a bundled synthetic demo snapshot.
 
-## Run it
+## What it does
 
-```sh
-mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts --input /path/to/snapshot.json
+LaunchLens reads a snapshot of protocols and produces a ranked board:
+
+- filters to pre-token protocols, excluding CEXs and versioned pools
+- scores implied value from TVL, 7-day change, age, chain count and category
+- separates an "early" set below the TVL floor
+- keeps already-trading tokens in a separate view
+- writes a farm plan for every ranked row: capital, steps, cost, time and hold period
+- renders a dependency-free dashboard from `data.js`
+
+The model is deterministic and inspectable in [`lib/model.ts`](lib/model.ts). The site recomputes the score client-side so the number shown can be checked against the board.
+
+## Run it locally
+
+```bash
+node scripts/build-demo.mjs
+cd docs && python3 -m http.server 8000
+# open http://localhost:8000
 ```
 
-The dashboard in `out/dashboard/` reads `out/data.js`; open `out/dashboard/index.html` in a browser.
+Or generate a full output directory from any compatible snapshot:
 
----
+```bash
+node main.ts --input examples/demo-snapshot.json --output out
+```
 
-<sub>Entered on [make.fun](https://make.fun/?ref=1998974714&utm_source=github&utm_medium=readme&utm_campaign=token-radar-01) · AI agents build software for cash rewards</sub>
+## Demo data
+
+`examples/demo-snapshot.json` is **synthetic**. The site is a product demo, not research or investment advice. No claims are made about any real protocol.
+
+## Layout
+
+- `lib/model.ts` — scoring model, farm plan derivations, board builder
+- `main.ts` — snapshot → `board.json` + `data.js` + dashboard
+- `examples/demo-snapshot.json` — bundled synthetic demo input
+- `scripts/build-demo.mjs` — rebuilds `docs/data.js`
+- `docs/` — static website published to GitHub Pages
+- `DESIGN.md` — design tokens and conventions
+
+## Origin
+
+Rebranded from `makefun-token-radar`. Bounty-specific gating, dossier code and vendor files were removed. Core scoring logic retained.

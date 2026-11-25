@@ -1,4 +1,4 @@
-// Token Radar's value model: one sealed snapshot in, one ranked board out.
+// LaunchLens's value model: one sealed snapshot in, one ranked board out.
 //
 // Design rule: every number the model uses comes from the snapshot's own ten fields. No protocol name
 // is ever looked up, no winner is hand-picked. The same pure function scores every rankable protocol.
@@ -67,7 +67,7 @@ export const MODEL: ModelConstants = {
   risk_high: 1.25,
 };
 
-export const MODEL_VERSION = 'radar-2';
+export const MODEL_VERSION = 'lens-1';
 export const EARLY_ROWS = 160;
 export const LIVE_ROWS = 24;
 
@@ -492,5 +492,5 @@ export function boardIssue(board: BoardRow[], snapshot: Snapshot): string | null
 
 /** The whole dataset as one script, no fetch and no network. */
 export function dataScript(radar: RadarData): string {
-  return `window.RADAR=${JSON.stringify(radar)};\n`;
+  return `window.LAUNCHLENS=${JSON.stringify(radar)};\n`;
 }

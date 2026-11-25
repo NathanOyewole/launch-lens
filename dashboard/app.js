@@ -1,10 +1,10 @@
-// NIGHT RADAR — the dashboard. Reads window.RADAR (written by main.ts beside this folder) and renders
+// LAUNCHLENS — the dashboard. Reads window.LAUNCHLENS (written by main.ts beside this folder) and renders
 // the ranked pre-token board, a filterable/sortable table, per-protocol detail with the model's own
 // arithmetic and farm plan, and a separate already-trading view. No framework, no network.
 (function () {
   'use strict';
 
-  var DATA = window.RADAR;
+  var DATA = window.LAUNCHLENS;
   if (!DATA) return;
   var app = document.getElementById('board');
   var state = { q: '', category: 'all', tab: 'pre-token', sort: 'implied', dir: -1, selected: null };
@@ -184,7 +184,7 @@
     return el('header', { class: 'top' },
       el('div', { class: 'brand' },
         el('div', { class: 'sweep', 'aria-hidden': 'true' }),
-        el('div', null, el('div', { class: 'brand-name', text: 'Night Radar' }), el('div', { class: 'brand-sub', text: 'pre-token protocol board' }))
+        el('div', null, el('div', { class: 'brand-name', text: 'LaunchLens' }), el('div', { class: 'brand-sub', text: 'pre-token protocol lens' }))
       ),
       el('div', { class: 'top-meta' },
         el('span', { class: 'tag hot', text: 'SNAPSHOT ' + DATA.as_of }),
@@ -199,7 +199,7 @@
       el('div', null,
         el('div', { class: 'kicker', text: 'Signal / pre-token' }),
         el('h1', { text: 'What a token would be worth if the record stayed still.' }),
-        el('p', null, 'A ranked radar of ', el('b', { text: String(DATA.board_size) }), ' protocols with no token on record. All ', el('b', { text: DATA.watchlist_size }), ' watchlist slugs are covered, plus ', el('b', { text: String(DATA.early_size) }), ' early protocols below the floor. The model uses only the snapshot’s TVL, seven-day change, listed age, chains and category. Already-trading tokens sit in their own view.', el('b', { text: ' Implied value is an estimate, not a prediction of a launch.' }))
+        el('p', null, 'A ranked lens on ', el('b', { text: String(DATA.board_size) }), ' protocols with no token on record. All ', el('b', { text: DATA.watchlist_size }), ' watchlist slugs are covered, plus ', el('b', { text: String(DATA.early_size) }), ' early protocols below the floor. The model uses only the snapshot’s TVL, seven-day change, listed age, chains and category. Already-trading tokens sit in their own view.', el('b', { text: ' Implied value is an estimate, not a prediction of a launch.' }))
       ),
       el('div', { class: 'stats' },
         el('div', { class: 'stat hi' }, el('div', { class: 'v', text: String(DATA.board_size) }), el('div', { class: 'k', text: 'pre-token rows' })),
@@ -323,7 +323,7 @@
         el('div', { class: 'factor' }, el('b', { text: m.maturity_floor + '–' + (m.maturity_floor + m.maturity_range).toFixed(2) }), el('span', { text: 'maturity ' + m.maturity_days + 'd' })),
         el('div', { class: 'factor' }, el('b', { text: m.risk_low + ' / ' + m.risk_mid + ' / ' + m.risk_high }), el('span', { text: 'risk: low / mid / high' }))
       ),
-      el('p', { class: 'sub', text: 'Age is the time since DefiLlama first listed the protocol — the record’s best proxy for how long it has run with no token on file; an unlisted age uses ' + m.unknown_age_days + ' days. Chain diversity uses ln(1 + chains). The early radar adds the largest pre-token protocols below the $' + Math.round(DATA.floor_usd / 1e6) + 'M floor.' })
+      el('p', { class: 'sub', text: 'Age is the time since DefiLlama first listed the protocol — the record’s best proxy for how long it has run with no token on file; an unlisted age uses ' + m.unknown_age_days + ' days. Chain diversity uses ln(1 + chains). The early lens adds the largest pre-token protocols below the $' + Math.round(DATA.floor_usd / 1e6) + 'M floor.' })
     );
   }
 
@@ -390,7 +390,7 @@
     app.textContent = '';
     var shell = el('div', { class: 'shell' }, header(), lede(), controls(), state.tab === 'pre-token' ? boardTable() : liveTable());
     if (state.tab === 'pre-token') shell.appendChild(modelPanel());
-    shell.appendChild(el('div', { class: 'foot', text: 'Night Radar · 758 protocols read · data from the sealed DefiLlama snapshot · no network requests' }));
+    shell.appendChild(el('div', { class: 'foot', text: 'LaunchLens · 758 protocols read · data from the sealed DefiLlama snapshot · no network requests' }));
     app.appendChild(shell);
     app.setAttribute('aria-busy', 'false');
     if (!dialog.isConnected) app.appendChild(dialog);
