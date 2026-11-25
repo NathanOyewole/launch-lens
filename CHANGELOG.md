@@ -1,5 +1,10 @@
 # LaunchLens — Changelog
 
+## Interaction fix, 25 November 2026
+
+- Fixed the `el()` event helper: it previously ignored `onClick()` wrappers, so tab buttons, sort headers, row clicks and detail dialog did not respond.
+- `dashboard/app.js` and `docs/app.js` both updated and rebuilt from the same source.
+
 ## Vercel deployment, 25 November 2026
 
 - Linked `NathanOyewole/launch-lens` to Vercel with `docs/` as the root directory.

@@ -58,7 +58,11 @@
     if (attrs) Object.keys(attrs).forEach(function (k) {
       if (k === 'class') node.className = attrs[k];
       else if (k === 'text') node.textContent = attrs[k];
-      else if (k === 'on') node.addEventListener(attrs[k][0], attrs[k][1]);
+      else if (k === 'on') {
+        var spec = attrs[k];
+        if (Array.isArray(spec)) node.addEventListener(spec[0], spec[1]);
+        else if (spec && spec.on) node.addEventListener(spec.on[0], spec.on[1]);
+      }
       else if (attrs[k] !== null && attrs[k] !== undefined) node.setAttribute(k, attrs[k]);
     });
     for (var i = 2; i < arguments.length; i++) {
