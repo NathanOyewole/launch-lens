@@ -1,5 +1,13 @@
 # LaunchLens — Changelog
 
+## Custom domain, 25 November 2026
+
+- Added `docs/CNAME` for `launchlens.pxxl.click`.
+- Set GitHub Pages custom domain to `launchlens.pxxl.click` so Orynth sees a domain separate from Eval Diff.
+- `README.md` documents the new primary URL and keeps the github.io fallback.
+
+Required DNS: `CNAME launchlens.pxxl.click -> nathanoyewole.github.io` (Cloudflare proxy off initially).
+
 ## Rebrand and public site, 25 November 2026
 
 - Renamed `makefun-token-radar` to **LaunchLens**.
