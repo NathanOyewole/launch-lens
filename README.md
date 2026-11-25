@@ -6,6 +6,8 @@ Rank pre-token protocols by implied value and get a costed farm plan for each.
 
 Fallback: https://nathanoyewole.github.io/launch-lens/
 
+Domain verification lives at `docs/.well-known/ory-verify.txt`, served from `https://launch-lens-nathanoyewoles-projects.vercel.app/.well-known/ory-verify.txt`. The matching `<meta name="ory-verify">` tag is in `docs/index.html` as a fallback. `docs/.nojekyll` keeps the dot-directory visible on the GitHub Pages fallback.
+
 ## What it does
 
 LaunchLens reads a snapshot of protocols and produces a ranked board:

@@ -1,5 +1,12 @@
 # LaunchLens — Changelog
 
+## Ory domain verification, 25 November 2026
+
+- Added `docs/.well-known/ory-verify.txt` with the Ory verification token for the Vercel site.
+- Added `docs/.nojekyll` so the GitHub Pages fallback also serves the dot-directory.
+- Added `<meta name="ory-verify">` to `docs/index.html` as a fallback verification method.
+- `README.md` documents both verification paths.
+
 ## Interaction fix, 25 November 2026
 
 - Fixed the `el()` event helper: it previously ignored `onClick()` wrappers, so tab buttons, sort headers, row clicks and detail dialog did not respond.
