@@ -1,5 +1,11 @@
 # LaunchLens — Changelog
 
+## Pages fallback cleanup, 25 November 2026
+
+- Removed the stale `docs/CNAME` for `launchlens.pxxl.click`.
+- Cleared the GitHub Pages custom domain so the fallback serves from `nathanoyewole.github.io/launch-lens/`.
+- `README.md` documents that Vercel is the primary listing and Pages has no custom domain.
+
 ## Ory domain verification, 25 November 2026
 
 - Added `docs/.well-known/ory-verify.txt` with the Ory verification token for the Vercel site.
