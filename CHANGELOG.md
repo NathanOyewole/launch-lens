@@ -11,5 +11,6 @@
 - Added `docs/favicon.svg`, `favicon.ico` and `apple-touch-icon.png`.
 - Added `DESIGN.md`, `README.md` and this changelog.
 - MODEL_VERSION changed from `radar-2` to `lens-1`.
+- Corrected stale footer copy that still referenced 758 DefiLlama protocols; the public board now states it uses a synthetic demo snapshot.
 
 Demo data is synthetic. No real protocols are scored in the public site.

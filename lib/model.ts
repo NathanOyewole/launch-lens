@@ -1,4 +1,4 @@
-// LaunchLens's value model: one sealed snapshot in, one ranked board out.
+// LaunchLens's value model: one snapshot in, one ranked board out.
 //
 // Design rule: every number the model uses comes from the snapshot's own ten fields. No protocol name
 // is ever looked up, no winner is hand-picked. The same pure function scores every rankable protocol.
@@ -139,7 +139,7 @@ export interface LiveRow {
   change_7d: number | null;
 }
 
-/** The dataset window.RADAR carries to the page. */
+/** The dataset window.LAUNCHLENS carries to the page. */
 export interface RadarData {
   as_of: string;
   source: string;
@@ -435,7 +435,7 @@ export function buildRadar(snapshot: Snapshot, model: ModelConstants = MODEL): {
   return { board, radar };
 }
 
-/** Parse and shape-check the sealed snapshot. */
+/** Parse and shape-check the snapshot. */
 export function parseSnapshot(text: string): Snapshot {
   let raw: unknown;
   try {

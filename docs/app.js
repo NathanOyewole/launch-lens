@@ -380,7 +380,7 @@
           return el('li', null, el('b', { text: action }), el('span', { class: 'cost', text: tail }));
         }))
       ),
-      el('div', { class: 'foot', text: 'Implied value is this entry’s claim from the sealed snapshot, not a price target or a promise of a token. Farming carries risk; verify every contract yourself.' })
+      el('div', { class: 'foot', text: 'Implied value is this entry’s estimate from the demo snapshot, not a price target or a promise of a token. Farming carries risk; verify every contract yourself.' })
     ));
     if (typeof dialog.showModal === 'function') { if (!dialog.open) dialog.showModal(); }
     else dialog.setAttribute('open', '');
@@ -390,7 +390,7 @@
     app.textContent = '';
     var shell = el('div', { class: 'shell' }, header(), lede(), controls(), state.tab === 'pre-token' ? boardTable() : liveTable());
     if (state.tab === 'pre-token') shell.appendChild(modelPanel());
-    shell.appendChild(el('div', { class: 'foot', text: 'LaunchLens · 758 protocols read · data from the sealed DefiLlama snapshot · no network requests' }));
+    shell.appendChild(el('div', { class: 'foot', text: 'LaunchLens · synthetic demo snapshot · local model · no network requests' }));
     app.appendChild(shell);
     app.setAttribute('aria-busy', 'false');
     if (!dialog.isConnected) app.appendChild(dialog);
