@@ -2,9 +2,9 @@
 
 Rank pre-token protocols by implied value and get a costed farm plan for each.
 
-**Website:** https://launchlens.pxxl.click/ — static board with a bundled synthetic demo snapshot.
+**Website:** https://launch-lens-nathanoyewoles-projects.vercel.app/ — static board with a bundled synthetic demo snapshot.
 
-Fallback while DNS propagates: https://nathanoyewole.github.io/launch-lens/
+Fallback: https://nathanoyewole.github.io/launch-lens/
 
 ## What it does
 

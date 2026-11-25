@@ -1,5 +1,13 @@
 # LaunchLens — Changelog
 
+## Vercel deployment, 25 November 2026
+
+- Linked `NathanOyewole/launch-lens` to Vercel with `docs/` as the root directory.
+- Disabled Vercel Authentication so the public URL is reachable.
+- Primary website is now `https://launch-lens-nathanoyewoles-projects.vercel.app/`.
+- `README.md` documents the Vercel URL and keeps the github.io fallback.
+- GitHub Pages custom domain setup remains in place but is no longer the primary path.
+
 ## Custom domain, 25 November 2026
 
 - Added `docs/CNAME` for `launchlens.pxxl.click`.
